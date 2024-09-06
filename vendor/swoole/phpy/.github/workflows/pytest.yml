@@ -1,0 +1,45 @@
+name: pytest
+
+on: [ push, pull_request ]
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VERSION: ${{ matrix.python }}
+      IN_CI: 1
+    strategy:
+      fail-fast: false
+      matrix:
+        python: [ '3.7', '3.8', '3.9', '3.10', '3.11', '3.12' ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: sudo apt update -y && sudo apt install -y cmake redis-server
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          extensions: embed, curl, redis
+          coverage: none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "${{ matrix.python }}"
+      - name: Show machine information
+        run: |
+          date
+          env
+          uname -a
+          ulimit -a
+          python -V
+          ls -al
+          pwd
+      - name: Build
+        run: |
+          cmake .
+          make -j $(nproc)
+      - name: Run pytest tests
+        run: |
+          sudo service redis-server start
+          pip install pytest
+          pytest -v tests/

@@ -1,0 +1,1813 @@
+Extension [ <persistent> extension #17 phpy version 1.0.6 ] {
+
+  - Classes [13] {
+    Class [ <internal:phpy> class PyCore ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [12] {
+        Method [ <internal:phpy> static public method import ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy> static public method eval ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $code ]
+            Parameter #1 [ <optional> ?array $globals = null ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy> static public method int ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $value ]
+          }
+          - Return [ PyObject ]
+        }
+
+        Method [ <internal:phpy> static public method float ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $value ]
+          }
+          - Return [ PyObject ]
+        }
+
+        Method [ <internal:phpy> static public method bytes ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed $value = null ]
+          }
+          - Return [ PyObject ]
+        }
+
+        Method [ <internal:phpy> static public method object ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed $value = null ]
+          }
+          - Return [ PyObject ]
+        }
+
+        Method [ <internal:phpy> static public method fn ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> callable $cb ]
+          }
+          - Return [ PyObject ]
+        }
+
+        Method [ <internal:phpy> static public method scalar ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $value ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy> static public method next ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> PyObject $iter ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy> static public method fileno ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> $fp ]
+          }
+          - Return [ int|false ]
+        }
+
+        Method [ <internal:phpy> static public method setOptions ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> array $options ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy> static public method __callStatic ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [0] {
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> class PyObject implements Stringable, Iterator, Traversable, ArrayAccess, Countable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [16] {
+        Method [ <internal:phpy, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed $value = null ]
+          }
+        }
+
+        Method [ <internal:phpy> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> final class PyStr extends PyObject implements Countable, ArrayAccess, Traversable, Iterator, Stringable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [16] {
+        Method [ <internal:phpy, overwrites PyObject, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $value ]
+          }
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> final class PyModule extends PyObject implements Countable, ArrayAccess, Traversable, Iterator, Stringable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [16] {
+        Method [ <internal:phpy, inherits PyObject, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed $value = null ]
+          }
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> final class PyDict extends PyObject implements Countable, ArrayAccess, Traversable, Iterator, Stringable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [16] {
+        Method [ <internal:phpy, overwrites PyObject, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> array $value = null ]
+          }
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> abstract class PySequence extends PyObject implements Countable, ArrayAccess, Traversable, Iterator, Stringable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [18] {
+        Method [ <internal:phpy> public method contains ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $v ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy> public method slice ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> int $s ]
+            Parameter #1 [ <required> int $e ]
+          }
+          - Return [ PyObject ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed $value = null ]
+          }
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> final class PyList extends PySequence implements Stringable, Iterator, Traversable, ArrayAccess, Countable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [18] {
+        Method [ <internal:phpy, overwrites PyObject, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> array $value = null ]
+          }
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PySequence> public method contains ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $v ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PySequence> public method slice ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> int $s ]
+            Parameter #1 [ <required> int $e ]
+          }
+          - Return [ PyObject ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> final class PyTuple extends PySequence implements Stringable, Iterator, Traversable, ArrayAccess, Countable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [18] {
+        Method [ <internal:phpy, overwrites PyObject, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $data ]
+          }
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PySequence> public method contains ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $v ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PySequence> public method slice ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> int $s ]
+            Parameter #1 [ <required> int $e ]
+          }
+          - Return [ PyObject ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> final class PySet extends PyObject implements Countable, ArrayAccess, Traversable, Iterator, Stringable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [17] {
+        Method [ <internal:phpy, overwrites PyObject, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> array $data = null ]
+          }
+        }
+
+        Method [ <internal:phpy, overwrites PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+
+        Method [ <internal:phpy> public method contains ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $v ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> final class PyType extends PyObject implements Countable, ArrayAccess, Traversable, Iterator, Stringable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [16] {
+        Method [ <internal:phpy, overwrites PyObject, ctor> private method __construct ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> final class PyFn extends PyObject implements Countable, ArrayAccess, Traversable, Iterator, Stringable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [16] {
+        Method [ <internal:phpy, overwrites PyObject, ctor> public method __construct ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> callable $fn ]
+          }
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> <iterateable> final class PyIter extends PyObject implements Countable, ArrayAccess, Traversable, Iterator, Stringable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [0] {
+      }
+
+      - Methods [16] {
+        Method [ <internal:phpy, overwrites PyObject, ctor> private method __construct ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __call ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> array $arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __get ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> string $name ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __set ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> string $name ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject> public method __invoke ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <optional> mixed ...$arguments ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetGet ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetSet ] {
+
+          - Parameters [2] {
+            Parameter #0 [ <required> mixed $offset ]
+            Parameter #1 [ <required> mixed $value ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetUnset ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype ArrayAccess> public method offsetExists ] {
+
+          - Parameters [1] {
+            Parameter #0 [ <required> mixed $offset ]
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method key ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method next ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method rewind ] {
+
+          - Parameters [0] {
+          }
+          - Return [ void ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method valid ] {
+
+          - Parameters [0] {
+          }
+          - Return [ bool ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Iterator> public method current ] {
+
+          - Parameters [0] {
+          }
+          - Return [ mixed ]
+        }
+
+        Method [ <internal:phpy, inherits PyObject, prototype Countable> public method count ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+      }
+    }
+
+    Class [ <internal:phpy> final class PyError extends Exception implements Throwable, Stringable ] {
+
+      - Constants [0] {
+      }
+
+      - Static properties [0] {
+      }
+
+      - Static methods [0] {
+      }
+
+      - Properties [8] {
+        Property [ protected $message = '' ]
+        Property [ protected $code = 0 ]
+        Property [ protected string $file = '' ]
+        Property [ protected int $line = 0 ]
+        Property [ public $error = NULL ]
+        Property [ public $type = NULL ]
+        Property [ public $value = NULL ]
+        Property [ public $traceback = NULL ]
+      }
+
+      - Methods [10] {
+        Method [ <internal:Core, inherits Exception, ctor> public method __construct ] {
+
+          - Parameters [3] {
+            Parameter #0 [ <optional> string $message = "" ]
+            Parameter #1 [ <optional> int $code = 0 ]
+            Parameter #2 [ <optional> ?Throwable $previous = null ]
+          }
+        }
+
+        Method [ <internal:Core, inherits Exception> public method __wakeup ] {
+
+          - Parameters [0] {
+          }
+          - Tentative return [ void ]
+        }
+
+        Method [ <internal:Core, inherits Exception, prototype Throwable> final public method getMessage ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:Core, inherits Exception, prototype Throwable> final public method getCode ] {
+
+          - Parameters [0] {
+          }
+        }
+
+        Method [ <internal:Core, inherits Exception, prototype Throwable> final public method getFile ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:Core, inherits Exception, prototype Throwable> final public method getLine ] {
+
+          - Parameters [0] {
+          }
+          - Return [ int ]
+        }
+
+        Method [ <internal:Core, inherits Exception, prototype Throwable> final public method getTrace ] {
+
+          - Parameters [0] {
+          }
+          - Return [ array ]
+        }
+
+        Method [ <internal:Core, inherits Exception, prototype Throwable> final public method getPrevious ] {
+
+          - Parameters [0] {
+          }
+          - Return [ ?Throwable ]
+        }
+
+        Method [ <internal:Core, inherits Exception, prototype Throwable> final public method getTraceAsString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+
+        Method [ <internal:Core, inherits Exception, prototype Stringable> public method __toString ] {
+
+          - Parameters [0] {
+          }
+          - Return [ string ]
+        }
+      }
+    }
+  }
+}
+
