@@ -1,3 +1,5 @@
+## I'm weird... don't be mad... I like being weird.
+
 One of the issues that I have had quite a bit is the rapid evolution of the APIs for both OpenAI and Anthropic since there is no official PHP SDK.
 Well, I stumbled on a solution, my friends :) Also, I'm happy to sday that this project I am going to talkk about is being actively developed.
 Github: Swoole/Phpy
