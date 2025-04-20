@@ -1,4 +1,4 @@
-FROM php:8.4.6RC1-cli-bullseye
+FROM php:8.4.6-zts-alpine3.21
 LABEL authors="Heelie"
 
 RUN sed -i 's#http://deb.debian.org#https://mirrors.aliyun.com#g' /etc/apt/sources.list
